@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  console.log("Contact component mounted");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,29 +19,32 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      
-      // Reset form after success
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      // Reset status after a delay
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    }, 1500);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log("Submitting...");
+  setIsSubmitting(true);
+  try {
+    const response = await fetch('https://my-portfolio-backend-skw9.onrender.com/api/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send message');
+    }
+
+    setSubmitStatus('success');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  } catch (error) {
+    console.error('Error submitting contact form:', error);
+    setSubmitStatus('error');
+  } finally {
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus('idle'), 5000);
+  }
+};
+
   
   return (
     <section id="contact" className="bg-white dark:bg-slate-800 py-16 sm:py-24">
@@ -228,34 +232,35 @@ const Contact: React.FC = () => {
                     Message
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                    placeholder="Your message here..."
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      autoComplete="off"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                      placeholder="Your message here..."
                   ></textarea>
                 </div>
-                
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-primary flex items-center justify-center gap-2"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <>
-                      <Loader2 size={20} className="animate-spin" />
-                      Sending...
-                    </>
+                      <>
+                        <Loader2 className="animate-spin" size={20}/>
+                        Sending...
+                      </>
                   ) : (
-                    <>
-                      <Send size={20} />
-                      Send Message
-                    </>
-                  )}
-                </button>
+                      <>
+                        <Send size={20}/>
+                        Send Message
+    </>
+  )}
+</button>
+
               </div>
             </form>
           </motion.div>
