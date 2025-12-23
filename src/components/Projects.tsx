@@ -31,19 +31,36 @@ const projects: Project[] = [
     github: 'https://github.com/docmintai/docmint-service'
   },
   {
-    id: 'ecom-nepal',
-    title: 'Ecom Nepal',
-    description: 'An e-commerce platform with RESTful API built with Django REST Framework.',
-    technologies: ['Django', 'Django REST Framework', 'JWT Authentication', 'Postman'],
+    id: 'BMS(Bus Management System)',
+    title: 'BMS(Bus Management System)',
+    description: 'A bus management system with advanced user authentication and role-based access control.',
+    technologies: ['Django', 'Django REST Framework','Redis','Celery','PostgreSQL', 'JWT Authentication', 'Postman'],
     points: [
       'Built a RESTful API using Django REST Framework (DRF).',
       'Implemented CRUD operations for managing resources.',
       'Added JWT/Token authentication for secure access.',
-      'Tested API endpoints using Postman.'
+      'Integrated Redis for caching and session management.',
+      'Utilized Celery for background task processing.',
+      'Implemented role-based access control (RBAC) to restrict user permissions for secure document management.'
     ],
     image: 'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    github: 'https://github.com/imramesh222/EcomNepal'
-  }
+    github: 'https://github.com/imramesh222/Business-management-system-rbac'
+  },
+  {
+    id: 'Electronic Shop',
+    title: 'Electronic Shop',
+    description: 'An electronic shop management system with advanced user authentication and role-based access control.',
+    technologies: ['Django', 'Django REST Framework','Django templates','Sqlite','JWT Authentication','Postman'],
+    points: [
+      'Built a RESTful API using Django REST Framework (DRF).',
+      'Implemented CRUD operations for managing resources.',
+      'Implemented diffrent templates for different pages.',
+      'Added JWT/Token authentication for secure access.',
+      'Implemented role-based access control (RBAC) to restrict user permissions for secure document management.'
+    ],
+    image: 'https://www.goodhousekeeping.com/home-products/g60307127/cool-office-gadgets/',
+    github: 'https://github.com/imramesh222/electronic-shop'
+  },
 ];
 
 const ProjectModal: React.FC<{ 
