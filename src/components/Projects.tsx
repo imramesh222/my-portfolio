@@ -58,7 +58,7 @@ const projects: Project[] = [
       'Added JWT/Token authentication for secure access.',
       'Implemented role-based access control (RBAC) to restrict user permissions for secure document management.'
     ],
-    image: 'https://www.goodhousekeeping.com/home-products/g60307127/cool-office-gadgets/',
+    image: 'https://hips.hearstapps.com/hmg-prod/images/gh-office-gadgets-66042b2e9168c.png?crop=1.00xw:1.00xh;0,0&resize=1800:*',
     github: 'https://github.com/imramesh222/electronic-shop'
   },
 ];
