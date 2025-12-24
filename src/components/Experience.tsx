@@ -15,7 +15,7 @@ const jobs: Job[] = [
     company: 'TreeLeaf Technologies Pvt. Ltd',
     position: 'Python Developer',
     location: 'Shankhamul-11, Lalitpur',
-    duration: 'Dec 2023 - Present',
+    duration: 'Jan 2025 - Aug 2025',
     responsibilities: [
       'API Development: Developed a FastAPI-based backend for efficient document management and user authentication.',
       'Database Management: Designed and implemented SQLAlchemy models for structured database interactions, ensuring optimized queries and data integrity.',
@@ -29,7 +29,7 @@ const jobs: Job[] = [
     company: 'Evolve IT Hub Nepal',
     position: 'Fullstack Developer',
     location: 'Lagankhel, Lalitpur',
-    duration: 'May 2023 - Dec 2023',
+    duration: 'Jan 2024 - Sep 2024',
     responsibilities: [
       'Version Control: Managed database migrations using Django Migrations for schema updates.',
       'Database Management: Designed and implemented Django ORM models for structured database interactions.',
@@ -47,11 +47,11 @@ const JobCard: React.FC<{ job: Job, index: number }> = ({ job, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="card p-6 relative overflow-visible"
     >
-      {index === 0 && (
+      {/* {index === 0 && (
         <div className="absolute -top-3 -right-3 bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-semibold">
           Current
         </div>
-      )}
+      )} */}
       
       <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-1">
         {job.position}
