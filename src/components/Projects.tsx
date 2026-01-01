@@ -31,9 +31,9 @@ const projects: Project[] = [
     github: 'https://github.com/docmintai/docmint-service'
   },
   {
-    id: 'BMS(Bus Management System)',
-    title: 'BMS(Bus Management System)',
-    description: 'A bus management system with advanced user authentication and role-based access control.',
+    id: 'BMS(Business Management System)',
+    title: 'BMS(Business Management System)',
+    description: 'A business management system with advanced user authentication and role-based access control.',
     technologies: ['Django', 'Django REST Framework','Redis','Celery','PostgreSQL', 'JWT Authentication', 'Postman'],
     points: [
       'Built a RESTful API using Django REST Framework (DRF).',
